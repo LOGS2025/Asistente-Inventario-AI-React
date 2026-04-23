@@ -2,7 +2,6 @@
 import { Formulario } from "./Component/Form/Formulario";
 import { Productos } from "./Component/Productos/Productos";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 // 1. El usuario ingresa una idea del producto
 // Component/Form -> Recibe y se envia por medio de post
@@ -20,6 +19,8 @@ import axios from "axios";
 export default function Home() {
   const [productos, setProductos] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(()=>{
     const obtenerProductos = async ()=>{
       const response = await fetch('/API/productos/producto_get');
@@ -36,7 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>Formulario</h1>
+      <h1>Home</h1>
       <Formulario/>
 
       <Productos 
