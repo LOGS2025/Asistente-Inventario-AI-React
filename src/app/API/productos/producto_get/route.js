@@ -4,7 +4,7 @@ import { supabase } from "@/app/lib/supabase";
 export async function GET() {
   try {
     const { data, error }= await supabase 
-      .from('cuentas')
+      .from('productos')
       .select('*')
     if (data) {
       return Response.json({
@@ -21,7 +21,7 @@ export async function GET() {
     } 
   }
   catch (error) {
-    return Repsonse.json({
+    return Response.json({
       ok: false,
       mensaje : error,
     })
