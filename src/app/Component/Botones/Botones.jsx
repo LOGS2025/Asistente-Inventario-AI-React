@@ -1,9 +1,11 @@
+import { delete_handler_sp, post_handler_sp, put_handler_sp } from "@/app/services/services";
+
 export const ButtonPOST = (
   { inputRef, 
     inputView, 
     setInputView, 
     callOllamaAPI, 
-    send_to_supabase}
+    post_handler_sp}
 )=>{
   const updateProduct = async ()=>{
     try {
@@ -30,7 +32,7 @@ export const ButtonPOST = (
       >Obtener Descripcion</button>
     <button
       onClick={ async ()=>{
-        const res = await send_to_supabase(inputView[0],inputView[1],inputView[2],inputView[3]);
+        const res = await post_handler_sp(inputView[0],inputView[1],inputView[2],inputView[3]);
       }}
       >Enviar a supabase</button>
   </div>
@@ -38,16 +40,11 @@ export const ButtonPOST = (
 }
 
 export const ButtonPUT = (payload)=>{
-  const nombre = payload.nombre;
-  const descripcion = payload.descripcion;
-  const precio = payload.precio;
-  const categoria = payload.categoria;
-
   return (
   <>
     <button
       onClick={ async ()=>{
-          const res = await send_to_supabase(nombre,descripcion,precio,categoria);
+          const res = await put_handler_sp(payload);
         }
       }
     >
@@ -58,16 +55,11 @@ export const ButtonPUT = (payload)=>{
 }
 
 export const ButtonDELETE = (payload)=>{
-  const nombre = payload.nombre;
-  const descripcion = payload.descripcion;
-  const precio = payload.precio;
-  const categoria = payload.categoria;
-
   return (
   <>
     <button
       onClick={ async ()=>{
-          const res = await send_to_supabase(nombre,descripcion,precio,categoria);
+          const res = await delete_handler_sp(payload);
         }
       }
     >

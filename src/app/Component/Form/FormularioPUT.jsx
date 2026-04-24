@@ -1,18 +1,21 @@
 "use client"
-import { useRef, useEffect, useState } from "react"
+import { useRef } from "react"
 import { ButtonPUT } from "../Botones/Botones";
 
-export const FormularioPUT = ()=>{
+export const FormularioPUT = ({
+  getValues
+})=>{
   const inputRef_nombre = useRef();
   const inputRef_descripcion = useRef();
   const inputRef_precio = useRef();
   const inputRef_categoria = useRef();
 
   let payload = {
-    'nombre':'',
-    'descripcion':'',
-    'precio':'',
-    'categoria':'',
+    'id':getValues.id,
+    'nombre':getValues.nombre,
+    'descripcion':getValues.descripcion,
+    'precio':getValues.precio,
+    'categoria':getValues.categoria,
   };
 
   return (
@@ -21,7 +24,8 @@ export const FormularioPUT = ()=>{
     <div className="form_put">
       <label>Nombre</label>
       <input
-        onChange={(e)=>{
+        defaultValue={getValues.nombre}
+        onChange={()=>{
             payload.nombre =  inputRef_nombre.current.value;
           }
         }
@@ -30,7 +34,8 @@ export const FormularioPUT = ()=>{
       />
       <label>Descripcion</label>
       <input
-        onChange={(e)=>{
+        defaultValue={getValues.descripcion}
+        onChange={()=>{
             payload.descripcion =  inputRef_descripcion.current.value;
           }
         }
@@ -39,7 +44,8 @@ export const FormularioPUT = ()=>{
       />
       <label>Precio</label>
       <input
-        onChange={(e)=>{
+        defaultValue={getValues.precio}
+        onChange={()=>{
             payload.precio =  inputRef_precio.current.value;
           }
         }
@@ -48,7 +54,8 @@ export const FormularioPUT = ()=>{
       />
       <label>Categoria</label>
       <input
-        onChange={(e)=>{
+        defaultValue={getValues.categoria}
+        onChange={()=>{
             payload.categoria =  inputRef_categoria.current.value;
           }
         }

@@ -5,6 +5,8 @@ export async function GET() {
     const { data, error }= await supabase 
       .from('productos')
       .select('*')
+      .eq('status', true)
+      
     if (data) {
       return Response.json({
         ok: true,

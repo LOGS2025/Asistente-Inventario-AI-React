@@ -31,12 +31,11 @@ export const UpdateProducto = () => {
       
       {
         productos && (
-          <>
-          <Productos
-            productos={productos}
+          <div>
+          <FormularioPUT
+            getValues={productos[0]}
           />
-          <FormularioPUT/>
-          </>
+          </div>
         )
       }
     </div>

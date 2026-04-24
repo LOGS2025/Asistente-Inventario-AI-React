@@ -1,6 +1,10 @@
- 
-
-export const post_handler_sp = async (payload)=>{
+export const post_handler_sp = async (nombre,descripcion,precio,categoria)=>{
+    const payload = {
+        "nombre" : nombre,
+        "descripcion" : descripcion,
+        "precio" : precio,
+        "categoria" : categoria,
+    }
     const response = await fetch('/api/productos/producto_crear', {
         method: 'POST',
         headers: {
@@ -12,9 +16,10 @@ export const post_handler_sp = async (payload)=>{
     console.log(result);
 }
 
-export const put_handler_sp = async ()=>{
-    const response = await fetch('/api/productos/producto_crear', {
-        method: 'POST',
+export const put_handler_sp = async (payload)=>{
+    console.log(payload);
+    const response = await fetch('/api/productos/producto_actualizar', {
+        method: 'PUT',
         headers: {
         'Content-Type': 'application/json',
         },
@@ -24,16 +29,18 @@ export const put_handler_sp = async ()=>{
     console.log(result);
 }
 
-// POST A SUPABASE
-export const send_to_supabase = async (nombre,descripcion,precio,categoria)=>{
-  const payload = {
-    "nombre" : nombre,
-    "descripcion" : descripcion,
-    "precio" : precio,
-    "categoria" : categoria,
-  }
-  post_handler_sp(payload);
-};
+export const delete_handler_sp = async (payload)=>{
+    console.log(payload);
+    const response = await fetch('/api/productos/producto_eliminar', {
+        method: 'PUT',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    }).catch(err => {console.log(err)});
+    const result = await response.json();
+    console.log(result);
+}
 
 export const callOllamaAPI = async (prompt_input) => {
     const prompt = `Genera un producto ficticio para una tienda en línea. 

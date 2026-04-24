@@ -2,7 +2,7 @@
 import { useRef, useEffect, useState } from "react"
 import { ButtonPOST } from "../Botones/Botones";
 import { callOllamaAPI } from "@/app/services/services";
-import { send_to_supabase } from "@/app/services/services";
+import { post_handler_sp } from "@/app/services/services";
 
 export const Formulario = ()=>{
   const inputRef = useRef();
@@ -24,7 +24,7 @@ export const Formulario = ()=>{
     inputView={inputView}
     setInputView={setInputView}
     callOllamaAPI={callOllamaAPI}
-    send_to_supabase={send_to_supabase}
+    post_handler_sp={post_handler_sp}
     />
 
     {inputView.map((el, i) => {

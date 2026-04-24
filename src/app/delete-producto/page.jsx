@@ -1,49 +1,50 @@
-"use client"
-import { useRef, useEffect, useState } from "react"
-import { ButtonPOST } from "../Component/Botones/Botones";
+'use client'
+import { useRef, useState } from "react";
+import { supabase } from "../lib/supabase";
+import { Productos } from "../Component/Productos/Productos";
+import { ButtonDELETE } from "../Component/Botones/Botones";
 
-export const DeleteProducto = ()=>{
+export const DeleteProducto = () => {
+  const [id, setId] = useState();
+  const [productos, setProductos] = useState();
   const inputRef = useRef();
-  const [inputView, setInputView] = useState([]);
+
+  async function getByID () {
+    const { data: todos } = await supabase.from('productos').select('*').eq('id',id);
+    // const response = await fetch(`/api/productos/${inputRef}`);
+    console.log(todos);
+    setProductos(todos);
+  }
 
   return (
-  <>
-    <h1>Eliminar producto</h1>
-    <div>
-      <label>Nombre</label>
+    <div className="form_card">
+      <h1>Eliminar Productos</h1>
       <input 
-        type="text"
-        ref={inputRef}
+        onChange={()=>{
+          console.log(inputRef.current.value);
+          setId(inputRef.current.value);
+        }} 
+        ref={inputRef} 
+        type="number" 
       />
-    </div>
-
-    <ButtonPOST
-    inputRef={inputRef}
-    inputView={inputView}
-    setInputView={setInputView}
-    />
-
-    {inputView.map((el, i) => {
-      let content;
+      <button onClick={getByID}>Revisar</button>
       
-      if (i === 0) {
-        content = <strong>Nombre : {el}</strong>;
-      } else if (i === 3) {
-        content = <strong>Descripcion : {el}</strong>;
-      } else if (i === 1) {
-        content = <strong>Precio : {el}</strong>;
-      } else if (i === 2) {
-        content = <strong>Categoria : {el}</strong>;
+      {
+        productos && (
+          <div>
+            <Productos
+              productos={productos}
+            />
+            <ButtonDELETE
+              payload={{
+                'id':productos[0].id
+              }}
+            />
+          </div>
+        )
       }
-      
-      return (
-        <li key={i}>
-          {content}
-        </li>
-      );
-    })}
-  </>
-  )
-}
+    </div>
+  );
+};
 
 export default DeleteProducto;
