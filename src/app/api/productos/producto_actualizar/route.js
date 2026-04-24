@@ -12,7 +12,7 @@ export async function PUT(request) {
 
   try {
     const { data, error} = await supabase
-      .from("cuentas")
+      .from("productos")
       .update(update)
       .eq("id",id)
       .select()

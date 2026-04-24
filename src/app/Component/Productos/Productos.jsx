@@ -1,13 +1,14 @@
 export const Productos = ({productos})=>{
   return (  
-  <>
+  <div className="items_container">
     {productos.map((producto) => ( 
-      <div key={producto.id}>  
-        <span>{producto.categoria}</span>
-        <span>{producto.descripcion}</span>
-        <span>{producto.id}</span>
-        <span>{producto.nombre}</span>
+      <div className="item_card" key={producto.id}>  
+        <span className="item_prop">{producto.categoria}</span>
+        <span className="item_prop">{producto.descripcion}</span>
+        <span className="item_prop">{producto.id}</span>
+        <span className="item_prop">{producto.nombre}</span>
       </div>
     ))}
-  </>)
+  </div>
+  )
 }

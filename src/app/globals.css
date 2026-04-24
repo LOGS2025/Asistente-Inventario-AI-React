@@ -1,13 +1,6 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #cccccc;
 }
 
 html {
@@ -46,4 +39,245 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Navbar.module.css */
+
+.navbar {
+  background-color: #ededed;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 0;
+}
+
+.navbar > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar > ul > li {
+  background-color: aqua;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar > ul > li:hover {
+  background-color: #00cccc;
+  transform: translateY(-2px);
+}
+
+.navbar > ul > li > button {
+  background-color: rebeccapurple;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.navbar > ul > li > button:hover {
+  background-color: #6a3ea3;
+  transform: scale(1.05);
+}
+
+.navbar > ul > li > button:active {
+  transform: scale(0.95);
+}
+
+/* Optional: Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar > ul {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .navbar > ul > li > button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Card Display */
+
+/* Productos.module.css */
+
+.items_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 500px;
+  min-height: 0px;
+}
+
+.item_card {
+  background-color: #ededed;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background-color: #e0e0e0;
+}
+
+.item_prop {
+  display: block;
+  background-color: aqua;
+  color: #333;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.item_prop:nth-child(1) {
+  background-color: rebeccapurple;
+  color: white;
+  font-weight: bold;
+}
+
+.item_prop:nth-child(2) {
+  background-color: #00cccc;
+}
+
+.item_prop:nth-child(3) {
+  background-color: #ff9999;
+}
+
+.item_prop:nth-child(4) {
+  background-color: #99cc99;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Formulario.module.css */
+
+.form_card {
+  background-color: #ededed;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.form_card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.form_card h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  background-clip: text;
+}
+
+.form_put {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form_put label {
+  background-color: aqua;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: -5px;
+}
+
+.form_put input {
+  background-color: white;
+  color: #333;
+  border: 2px solid #ddd;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  outline: none;
+  margin-bottom: 5px;
+}
+
+.form_put input:hover {
+  border-color: #999;
+}
+
+.form_card {
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botones.module.css - Compact Version */
+
+.http_button {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.http_button button {
+  background-color: rebeccapurple;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.http_button button:hover {
+  background-color: #6a3ea3;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.http_button button:active {
+  transform: translateY(0);
+}
+
+.http_button button:last-child {
+  background-color: #28a745;
+}
+
+.http_button button:last-child:hover {
+  background-color: #218838;
 }

@@ -16,9 +16,9 @@ export const FormularioPUT = ()=>{
   };
 
   return (
-  <>
+  <div className="form_card">
     <h1>Formulario</h1>
-    <div>
+    <div className="form_put">
       <label>Nombre</label>
       <input
         onChange={(e)=>{
@@ -61,6 +61,6 @@ export const FormularioPUT = ()=>{
     payload={payload}
   />
 
-  </>
+  </div>
   )
 }

@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>/</h1>
+      <h1>Productos guardados</h1>
 
       <Productos 
       productos={productos}

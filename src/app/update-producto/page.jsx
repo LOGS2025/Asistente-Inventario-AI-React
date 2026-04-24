@@ -17,7 +17,7 @@ export const UpdateProducto = () => {
   }
 
   return (
-    <>
+    <div className="form_card">
       <h1>Update Productos</h1>
       <input 
         onChange={()=>{
@@ -39,7 +39,7 @@ export const UpdateProducto = () => {
           </>
         )
       }
-    </>
+    </div>
   );
 };
 
