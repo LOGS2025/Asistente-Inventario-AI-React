@@ -1,10 +1,10 @@
 import { supabase } from "@/app/lib/supabase";
 
-export async function GET(request, { params }) {
+export async function GET({ params }) {
   const { id } = await params;
 
   const { data, error} = await supabase
-    .from("cuentas")
+    .from("productos")
     .select("*")
     .eq("id", id)
     .single()

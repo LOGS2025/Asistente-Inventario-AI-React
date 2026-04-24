@@ -1,6 +1,5 @@
 import { supabase } from "@/app/lib/supabase";
 
-
 export async function GET() {
   try {
     const { data, error }= await supabase 

@@ -53,3 +53,4 @@ export const postPromptOllama = async (prompt) => {
     throw new Error(`Failed to connect to Ollama: ${error.message}`);
   }
 };
+
